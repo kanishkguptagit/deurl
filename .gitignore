@@ -119,6 +119,5 @@ dmypy.json
 *.box
 
 eb-package.zip
-static/
 
 .vscode
