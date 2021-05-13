@@ -19,7 +19,13 @@
         </div>
         
         <div class="urlbar">
-            <form class="g-3" action="redirect/" method="POST">   
+            <form class="g-3" action="{% url 'redirector' %}" method="POST">   
+                {% csrf_token %}
+                {% for message in messages %}
+
+                    <div style="color: green;">{{message}}</div>
+
+                {% endfor %}
                 <div class="row">
                     <div class="col-auto">
                         <label for="urlinput" class="visually-hidden">URL</label>
@@ -58,20 +64,18 @@
             <img src="{% static 'images/starhrblack.JPG' %}" height="10%" width="20%" alt="divider">            
         </div>
         
-        <div class="container">                                     
-            <div class="card" style="margin: 20px 0; border: solid#18bc9c">
-                <div class="card-body">
-                    <p>Original Link : <a href="">First Link</a></p>
-                    <p>Redirected Link : <a href="">Second Link</a></p>
+        {% if user.is_authenticated %}
+        <div class="container"> 
+            {% for url in urls %}                                    
+                <div class="card" style="margin: 20px 0; border: solid#18bc9c">
+                    <div class="card-body">
+                        <p>Original Link : <a href="" target="_blank">{{url.url}}</a></p>
+                        <p>Redirected Link : <a href="" target="_blank">{{url.urlhash}}</a></p>
+                    </div>
                 </div>
-            </div>
-            <div class="card" style="margin: 20px 0; border: solid#18bc9c">
-                <div class="card-body">
-                    <p>Original Link : <a href="">First Link</a></p>
-                    <p>Redirected Link : <a href="">Second Link</a></p>
-                </div>
-            </div> 
+            {% endfor %}            
         </div>
+        {% endif %}
         
         <div class="starhrblack" style="padding-top: 6%;">
             <img src="{% static 'images/starhrblack.JPG' %}" height="10%" width="20%" alt="divider">            
