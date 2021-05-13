@@ -1,7 +1,9 @@
 from django.urls import path
-from redirector.views import urlredirect
+from redirector.views import urlRedirectCreate,urlRedirect,deleteUrl
 
+app_name="redirector"
 urlpatterns = [
-    path('', urlredirect.as_view(), name='redirector'),
-    #path('u/<str:slugs>', urlredirect.as_view(), name='redirector'),
+    path('', urlRedirectCreate.as_view(), name='redirectcreate'),
+    path('<slug:urlto>/', deleteUrl, name='deleteurl'),    
+    path('<slug:urlto>/', urlRedirect, name='urlredirect'),    
 ]

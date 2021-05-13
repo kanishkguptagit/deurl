@@ -19,7 +19,7 @@
         </div>
         
         <div class="urlbar">
-            <form class="g-3" action="{% url 'redirector' %}" method="POST">   
+            <form class="g-3" action="{% url 'redirector:redirectcreate' %}" method="POST">   
                 {% csrf_token %}
                 {% for message in messages %}
 
@@ -66,11 +66,14 @@
         
         {% if user.is_authenticated %}
         <div class="container"> 
-            {% for url in urls %}                                    
+            {% for url in data.urls %}                                    
                 <div class="card" style="margin: 20px 0; border: solid#18bc9c">
+                    <div class="card-header bg-transparent border-bottom-0">
+                        <a href="{% url 'redirector:deleteurl' urlto=url.urlhash %}"><button type="button" class="btn-close" aria-label="Close"></button></a>
+                      </div>
                     <div class="card-body">
-                        <p>Original Link : <a href="" target="_blank">{{url.url}}</a></p>
-                        <p>Redirected Link : <a href="" target="_blank">{{url.urlhash}}</a></p>
+                        <p>Original Link : <a href="{% url 'redirector:urlredirect' urlto=url.urlhash %}" target="_blank">{{url.url}}</a></p>
+                        <p>Redirected Link : <a href="{% url 'redirector:urlredirect' urlto=url.urlhash %}" target="_blank">{{data.domain}}/{{url.urlhash}}</a></p>
                     </div>
                 </div>
             {% endfor %}            

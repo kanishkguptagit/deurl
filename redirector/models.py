@@ -10,3 +10,7 @@ class URLredirects(models.Model):
 
     def __str__(self):
         return self.url
+
+    class Meta:
+        db_table = 'redirector'
+        verbose_name = 'URL Redirect'
