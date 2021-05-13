@@ -1,0 +1,35 @@
+#main{
+    background-color: #18bc9c;  
+    padding-top: 4%;
+    padding-bottom: 2%;
+}
+#urllist{
+    padding-top: 4%;
+    padding-bottom: 2%;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 6%;
+}      
+.urlbar{
+    display: flex;
+    justify-content: center;
+}
+.starhr{
+    display: flex;
+    justify-content: center;
+    padding-top: 8%;
+}
+.starhrblack{
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+    padding-bottom: 4%;
+}
+.cardshow{
+    display: flex;
+    justify-content: center;
+}
+
+
