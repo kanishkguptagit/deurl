@@ -22,19 +22,21 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="">Home</a>
+                        <h5 class="nav-link text-light">Welcome!  {{user.name}}</h5>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#main">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Contact</a>
-                    </li>
 
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="">Sign out</a>
+                        <a class="nav-link" href="{% url 'signout' %}">Sign out</a>
                     </li>
                     {% else %}
                     <li class="nav-item">

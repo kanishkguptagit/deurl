@@ -21,24 +21,31 @@
     <div class="container text-center body-css">
 
         <main class="form-signin">
-            <form>
+            <form action="{% url 'signup' %}" method="POST">
+
+                
+                {% csrf_token %}
+                
                 <img class="mb-4" src="{% static 'images/Capture.png' %}" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 fw-normal" style="color: white !important;">Please sign in</h1>
+                {% for message in messages %}
+                    <div style="color: red;">{{message}}</div>
+                {% endfor %}
 
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="name@example.com">
+                    <input type="text" class="form-control" name="name" id="floatingName" placeholder="name@example.com">
                     <label for="floatingName">Name</label>
                 </div>
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control pass" id="floatingPaasword" placeholder="name@example.com">
+                    <input type="password" class="form-control pass" name="pass" id="floatingPaasword" placeholder="name@example.com">
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control repass" id="floatingPasswordConfirm" placeholder="Password">
+                    <input type="password" class="form-control repass" name="repass" id="floatingPasswordConfirm" placeholder="Password">
                     <label for="floatingPasswordConfirm">Re-enter Password</label>
                 </div>
                 <button class="w-100 btn btn-lg btn-dark mt-4" type="submit">Sign in</button>

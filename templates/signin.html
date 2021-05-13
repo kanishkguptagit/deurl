@@ -21,16 +21,22 @@
     <div class="container text-center body-css">
 
         <main class="form-signin">
-            <form>
+            <form action="{% url 'signin' %}" method="POST">
+                
+                {% csrf_token %}
+                
                 <img class="mb-4" src="{% static 'images/Capture.png' %}" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 fw-normal" style="color: white !important;">Please sign in</h1>
+                {% for message in messages %}
+                    <div style="color: red;">{{message}}</div>
+                {% endfor %}
 
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" class="form-control" name="pass" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Password</label>
                 </div>
                 <button class="w-100 btn btn-lg btn-dark mt-4" type="submit">Sign in</button>

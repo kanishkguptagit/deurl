@@ -19,11 +19,11 @@
         </div>
         
         <div class="urlbar">
-            <form class="g-3">   
+            <form class="g-3" action="redirect/" method="POST">   
                 <div class="row">
                     <div class="col-auto">
                         <label for="urlinput" class="visually-hidden">URL</label>
-                        <input type="text" class="form-control" id="urlinput" placeholder="URL (required)">
+                        <input type="text" class="form-control" name="url" id="urlinput" placeholder="URL (required)">
                     </div>
                  
                     <div class="col-auto">
@@ -33,14 +33,10 @@
                 <div class="row justify-content-md-center" >
                     <div class="col-md-9 col-8" style="margin: auto;">
                         <label for="name" class="visually-hidden">custname</label>
-                        <input type="text" class="form-control" id="name" placeholder="custom (optional)">
+                        <input type="text" class="form-control" name="cust" id="name" placeholder="custom (optional)">
                     </div>
                 </div> 
-            </form>
-
-            <!-- <form>
-                <input type="text">
-            </form> -->
+            </form>            
 
         </div>       
         

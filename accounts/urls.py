@@ -1,7 +1,9 @@
 from django.urls import path
 from django.views.generic import TemplateView
+from accounts.views import UserSignUp,UserSignIn,UserSignOut
 
 urlpatterns = [    
-    path('signin/',TemplateView.as_view(template_name="signin.html"), name='signin'),
-    path('signup/',TemplateView.as_view(template_name="signup.html"), name='signup'),
+    path('signin/',UserSignIn.as_view(), name='signin'),
+    path('signup/',UserSignUp.as_view(), name='signup'),
+    path('logout/',UserSignOut.as_view(), name='signout'),
 ]
