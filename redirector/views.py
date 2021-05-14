@@ -49,8 +49,12 @@ class urlRedirectCreate(View):
             return redirect('/accounts/signin')
 
 
+def deleteUrl(request,urldelete=None):
+    URLredirects.objects.filter(urlhash=urldelete).delete()
+    return redirect('/')
+
 
 def urlRedirect(request, urlto=None):
     data = URLredirects.objects.get(urlhash=urlto)
-    new_site = "http://"+data.url
+    new_site = "https://"+data.url
     return redirect(new_site)
