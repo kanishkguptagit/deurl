@@ -19,7 +19,7 @@ which is to be used for redirection purpose.
 1) admin panel search functionalities
 2) model inline function with other model
 3) custom search
-4) disolved anonymous user problem
+4) dissolved anonymous user problem
 
 
 ## Working on a local server
@@ -28,5 +28,7 @@ You need to provide:
 2) a .env file which includes :
     1) SECRET_KEY
     2) DEBUG (0 for false, 1 for true)
-    3) urlhosting (domain name, 127.0.0.1:(port number) for local host)
     
+
+### Site is live at:
+https://deurl.herokuapp.com/
