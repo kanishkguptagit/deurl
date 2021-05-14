@@ -28,6 +28,10 @@ class urlRedirectCreate(View):
             custname = request.POST['cust']
             new_hash=''
 
+            if set(custname).difference(string.ascii_letters + string.digits):
+                messages.info(request,'no special characters allowed')
+                return redirect("/")
+
             if(URLredirects.objects.filter(user=request.user).filter(url=url).exists()):
                 messages.info(request,'redirect already exist')
                 return redirect("/")
