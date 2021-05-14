@@ -27,6 +27,11 @@ class urlRedirectCreate(View):
             url = request.POST['url']
             custname = request.POST['cust']
             new_hash=''
+
+            if(URLredirects.objects.filter(user=request.user).filter(url=url).exists()):
+                messages.info(request,'redirect already exist')
+                return redirect("/")
+
             if (custname is not None):            
                 if URLredirects.objects.filter(urlhash=custname).exists():                
                     messages.error(request,'Custom Name already taken')
