@@ -147,4 +147,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.UserProfile'
 
-urlhosting = os.environ['urlhosting']
+
+urlhosting = ''
+if DEBUG == False:
+    domain = 'deurl.herokuapp.com'
+else:
+    domain = '127.0.0.1:8000'
+
+urlhosting = domain
