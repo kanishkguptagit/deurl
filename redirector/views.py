@@ -49,10 +49,6 @@ class urlRedirectCreate(View):
             return redirect('/accounts/signin')
 
 
-def deleteUrl(request,urlto=None):
-    URLredirects.objects.filter(urlhash=urlto).delete()
-    return redirect('/')
-
 
 def urlRedirect(request, urlto=None):
     data = URLredirects.objects.get(urlhash=urlto)
