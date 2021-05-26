@@ -36,6 +36,9 @@ class urlRedirectCreate(View):
                 messages.info(request,'redirect already exist')
                 return redirect("/")
 
+            if(url[:5] == 'https'):
+                url = url[8:]
+
             if (custname is not None):            
                 if URLredirects.objects.filter(urlhash=custname).exists():                
                     messages.error(request,'Custom Name already taken')
