@@ -28,10 +28,7 @@
                 
                 <img class="mb-4" src="{% static 'images/Capture.png' %}" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 fw-normal" style="color: white !important;">Please sign in</h1>
-                {% for message in messages %}
-                    <div style="color: red;">{{message}}</div>
-                {% endfor %}
-
+                
                 <div class="form-floating">
                     <input type="text" class="form-control" name="name" id="floatingName" placeholder="name@example.com">
                     <label for="floatingName">Name</label>
@@ -55,6 +52,11 @@
         </main>
     </div>
 
+    {% if messages %}
+    <script>        
+        alert("{% for message in messages %}{{ message }}{% endfor %} ")
+    </script>
+    {% endif %}
 
 </body>
 

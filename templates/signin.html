@@ -26,10 +26,7 @@
                 {% csrf_token %}
                 
                 <img class="mb-4" src="{% static 'images/Capture.png' %}" alt="" width="72" height="72">
-                <h1 class="h3 mb-3 fw-normal" style="color: white !important;">Please sign in</h1>
-                {% for message in messages %}
-                    <div style="color: red;">{{message}}</div>
-                {% endfor %}
+                <h1 class="h3 mb-3 fw-normal" style="color: white !important;">Please sign in</h1>          
 
                 <div class="form-floating">
                     <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com">
@@ -45,6 +42,12 @@
             </form>
         </main>
     </div>
+
+    {% if messages %}
+    <script>        
+        alert("{% for message in messages %}{{ message }}{% endfor %} ")
+    </script>
+    {% endif %}
 
 
 </body>
